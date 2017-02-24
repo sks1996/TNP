@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<group android:id="@+id/main_group">
+
+
+    <item android:title="Home"
+        android:id="@+id/home" />
+
+
+    <item android:title="About Us"
+        android:id="@+id/about_us"/>
+
+
+    <item android:title="Query_Form"
+        android:id="@+id/query"/>
+
+    <item android:title="Notifications"
+        android:id="@+id/notification"/>
+
+
+    <item android:title="Founder's Message"
+        android:id="@+id/message"/>
+
+    <item android:title="Contacts"
+        android:id="@+id/contacts"/>
+
+    <item android:title="FAQ"
+        android:id="@+id/faq"/>
+
+
+</group>
+
+
+
+
+
+    <!--<item android:title="Others">
+        <menu>
+            <item
+                android:title="Spam"/>
+
+            <item
+                android:title="Bin"/>
+
+        </menu>
+    </item>-->
+<!--
+    <group android:id="@+id/group_settings_id">
+
+        <item android:title="Settings"/>
+
+        <item android:title="Help"/>
+
+    </group>
+-->
+
+</menu>
