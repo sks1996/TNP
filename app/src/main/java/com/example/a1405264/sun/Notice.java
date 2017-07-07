@@ -29,6 +29,7 @@ public class Notice extends Fragment {
 
     private ArrayList<Detail> detail=new ArrayList<>();
     FirebaseAuth firebaseAuth;
+    private ArrayList<String> NOTIFICATION=new ArrayList<>();
     private RecyclerView rclist;
     DatabaseReference mDatabase;
     private RecyclerViewAdapter recyclerViewAdapter;
@@ -45,10 +46,9 @@ public class Notice extends Fragment {
       //  mBolglist.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
         firebaseAuth=FirebaseAuth.getInstance();
-        mDatabase= FirebaseDatabase.getInstance().getReference().child("Notification");
+        mDatabase= FirebaseDatabase.getInstance().getReference().child("Notice").child("All Notices");
         mDatabase.keepSynced(true);
         rclist=(RecyclerView)view.findViewById(R.id.blog_list);
-        rclist.hasFixedSize();
         rclist.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
 
@@ -58,18 +58,20 @@ public class Notice extends Fragment {
 
                 Log.v("Data",dataSnapshot.toString());
 
-             /*   for(DataSnapshot ds:dataSnapshot.getChildren())
+                for(DataSnapshot ds:dataSnapshot.getChildren())
                 {
-                    New_Project_Details nw= ds.getValue(New_Project_Details.class);
-                    new_project_detailses.add(nw);
-                }
-                recyclerViewAdapter= new RecyclerViewAdapter(new_project_detailses,Home.Main);
-                rclist.setAdapter(recyclerViewAdapter);*/
+                    String Notification =ds.getValue(String.class);
+                    NOTIFICATION.add(Notification);
 
-                Detail nw= dataSnapshot.getValue(Detail.class);
+                    Log.v("Values",Notification);
+                }
+                recyclerViewAdapter= new RecyclerViewAdapter(NOTIFICATION,MainActivity.Main);
+                rclist.setAdapter(recyclerViewAdapter);
+
+              /*  Detail nw= dataSnapshot.getValue(Detail.class);
                 detail.add(nw);
                 recyclerViewAdapter= new RecyclerViewAdapter(detail,MainActivity.Main);
-                rclist.setAdapter(recyclerViewAdapter);
+                rclist.setAdapter(recyclerViewAdapter); */
 
             }
 

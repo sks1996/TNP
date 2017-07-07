@@ -9,9 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.a1405264.sun.Contact_us">
 
-    <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/webview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/contact"/>
+
+
 </FrameLayout>

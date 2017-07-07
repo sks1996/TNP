@@ -10,6 +10,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class MyService extends Service {
 
 
@@ -33,14 +34,30 @@ public class MyService extends Service {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 //at the start of the app start atleast on start of app
+
+
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                Intent NEW_NOTIFICATION=new Intent();
-                NEW_NOTIFICATION.setAction("A_NEW_NOTIFICATION");
-                sendBroadcast(NEW_NOTIFICATION);
+                try {
+
+                    MainActivity.VALUE=dataSnapshot.getValue(String.class);
+                    Intent NEW_NOTIFICATION=new Intent();
+                    NEW_NOTIFICATION.setAction("A_NEW_NOTIFICATION");
+                    sendBroadcast(NEW_NOTIFICATION);
+
+                }catch (Exception e)
+                {
+                    MainActivity.VALUE="A New Notification";
+                    Intent NEW_NOTIFICATION=new Intent();
+                    NEW_NOTIFICATION.setAction("A_NEW_NOTIFICATION");
+                    sendBroadcast(NEW_NOTIFICATION);
+
+
+                }
+
 
             }
 

@@ -4,19 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.a1405264.sun.Notifications">
-    <LinearLayout
+
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/notification_list">
-        </android.support.v7.widget.RecyclerView>
-
-    </LinearLayout>
-
+        android:id="@+id/blog_list">
+    </android.support.v7.widget.RecyclerView>
 
 
 </RelativeLayout>

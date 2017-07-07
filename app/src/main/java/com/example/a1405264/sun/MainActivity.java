@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentTransaction mFragmentTransaction;
     private FirebaseAuth mAuth;
     public static Context Main;
+    public static String VALUE;
 
 
     @Override
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
         Main=MainActivity.this;
 
 
@@ -103,11 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                if (menuItem.getItemId() == R.id.faq) {
-                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new Faq()).commit();
-
-                }
 
 
                 if (menuItem.getItemId() == R.id.contacts) {
@@ -134,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
 
         mDrawerToggle.syncState();
-
 
 
     }
@@ -165,7 +161,12 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.send_app:
-                    startActivity(new Intent(this,Share_aap.class));
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT,
+                            "Hey check out my pp at: https://play.google.com/store/apps/details?id=com.google.android.apps.plus");
+                    sendIntent.setType("text/plain");
+                    startActivity(sendIntent);
 
             }
             return  super.onOptionsItemSelected(item);

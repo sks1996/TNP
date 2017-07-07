@@ -14,12 +14,12 @@ import java.util.ArrayList;
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.Holder> {
 
-    private ArrayList<Detail> ListData;
+    private ArrayList<String> ListData;
     private LayoutInflater inflater;
     private Context Main;
 
 
-    public RecyclerViewAdapter(ArrayList<Detail> listData, Context c) {
+    public RecyclerViewAdapter(ArrayList<String> listData, Context c) {
         this.ListData = listData;
         this.inflater=LayoutInflater.from(c);
         Main=c;
@@ -28,17 +28,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view=inflater.inflate(R.layout.noti_row,parent,false);
 
+        View view=inflater.inflate(R.layout.noti_row,parent,false);
         return new Holder(view);
     }
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
 
-        Detail list_item=ListData.get(position);
+        String list_item=ListData.get(position);
 
-        holder.Title.setText(""+list_item.noti);
+        holder.Title.setText(list_item);
         // holder.Time.setText("Time : "+list_item.getDateTime());
         //   holder.Status.setText("Status : "+list_item.getStatus());
         // holder.Address.setText("Address : "+list_item.getAddress());
